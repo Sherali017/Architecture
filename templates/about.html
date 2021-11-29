@@ -1,0 +1,221 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<section class="about-section" style="background-image: url({% static 'images/background/1.jpg' %});">
+        <div class="auto-container">
+            <div class="row no-gutters">
+                <!-- Image Column -->
+                <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <div class="title-box wow fadeInLeft" data-wow-delay='1200ms'>
+                            {% for post in info %}
+                            <h2>{{ post.title }}</h2>
+                        </div>
+                        <div class="image-box wow fadeInRight" data-wow-delay='600ms'>
+                            <figure class="alphabet-img"><img src="{{ post.image.url }}" alt=""></figure>
+                            <figure class="image"><img src="{{ post.image.url }}" alt=""></figure>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <!-- Content Column -->
+                <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner-column wow fadeInLeft">
+                        <div class="content-box">
+                            <div class="title">
+                                {% for post in info%}
+                                <h2>Any  Complexity <br>For Any Cat</h2>
+                            </div>
+                            <div class="text">{{ post.content }}</div>
+                            <div class="link-box"><a href="{% url 'about:about' %}" class="theme-btn btn-style-one">About Us</a></div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End About Section -->
+
+    <!-- Fun Fact And Features -->
+    <section class="fun-fact-and-features alternate"  style="background-image: url({% static 'images/background/3.jpg' %});">
+        <div class="outer-box">
+            <div class="auto-container">
+                <!-- Fact Counter -->
+                <div class="fact-counter">
+                    <div class="row">
+                        <!--Column-->
+                        <div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp">
+                            <div class="count-box">
+                                <div class="count"><span class="count-text" data-speed="5000" data-stop="14">0</span></div>
+                                <h4 class="counter-title">Years of <br>Experience</h4>
+                            </div>
+                        </div>
+
+                        <!--Column-->
+                        <div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="400ms">
+                            <div class="count-box">
+                                <div class="count"><span class="count-text" data-speed="5000" data-stop="237">0</span></div>
+                                <h4 class="counter-title">Project <br>Taken</h4>
+                            </div>
+                        </div>
+
+                        <!--Column-->
+                        <div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="800ms">
+                            <div class="count-box">
+                                <div class="count"><span class="count-text" data-speed="5000" data-stop="11">0</span>K</div>
+                                <h4 class="counter-title">Twitter <br> Follower</h4>
+                            </div>
+                        </div>
+
+                        <!--Column-->
+                        <div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="1200ms">
+                            <div class="count-box">
+                                <div class="count"><span class="count-text" data-speed="5000" data-stop="12">0</span></div>
+                                <h4 class="counter-title">Awards<br>won</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <div class="features">
+                    <div class="row">
+                        {% for feature in features %}
+                        <div class="feature-block col-lg-4 col-md-6 col-sm-12">
+                            <div class="inner-box">
+                                <div class="icon-box"><span class="icon flaticon-decorating"></span></div>
+                                <h3><a href="service-detail.html">{{ feature.title }}</a></h3>
+                                <div class="text">{{ feature.long_text }}</div>
+                                <div class="link-box"><a href="service-detail.html">Read More</a></div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Fun Fact Section -->
+
+    <!-- Testimonial Section Two-->
+    <section class="testimonial-section-two">
+        <div class="auto-container">
+            <div class="sec-title">
+                <span class="float-text">Testimonial</span>
+                <h2>What Clients Says</h2>
+            </div>
+
+            <div class="testimonial-carousel-two owl-carousel owl-theme">
+               {% for post in clients %}
+                <div class="testimonial-block-two">
+                    <div class="inner-box">
+                        <div class="text">{{ post.content }}</div>
+                        <div class="info-box">
+                            <div class="thumb"><img src="{{ post.image.url }}" alt=""></div>
+                            <h5 class="name">{{ post.name }}</h5>
+                            <span class="date">{{ post.created_at }}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+
+            </div>
+        </div>
+    </section>
+    <!--End Testimonial Section Two-->
+
+    <!--Clients Section-->
+{#    <section class="clients-section style-two">#}
+{#        <div class="auto-container">#}
+{#            <div class="sponsors-outer">#}
+{#                <!--Sponsors Carousel-->#}
+{#                <ul class="sponsors-carousel owl-carousel owl-theme">#}
+{#                    <li class="slide-item"><figure class="image-box"><a href="#"><img src="{% static 'images/clients/1.png' %}" alt=""></a></figure></li>#}
+{#                    <li class="slide-item"><figure class="image-box"><a href="#"><img src="{% static 'images/clients/2.png' %}" alt=""></a></figure></li>#}
+{#                    <li class="slide-item"><figure class="image-box"><a href="#"><img src="{% static 'images/clients/3.png' %}" alt=""></a></figure></li>#}
+{#                    <li class="slide-item"><figure class="image-box"><a href="#"><img src="{% static 'images/clients/4.png' %}" alt=""></a></figure></li>#}
+{#                    <li class="slide-item"><figure class="image-box"><a href="#"><img src="{% static 'images/clients/5.png' %}" alt=""></a></figure></li>#}
+{#                    <li class="slide-item"><figure class="image-box"><a href="#"><img src="{% static 'images/clients/1.png' %}" alt=""></a></figure></li>#}
+{#                    <li class="slide-item"><figure class="image-box"><a href="#"><img src="{% static 'images/clients/2.png' %}" alt=""></a></figure></li>#}
+{#                    <li class="slide-item"><figure class="image-box"><a href="#"><img src="{% static 'images/clients/3.png' %}" alt=""></a></figure></li>#}
+{#                    <li class="slide-item"><figure class="image-box"><a href="#"><img src="{% static 'images/clients/4.png' %}" alt=""></a></figure></li>#}
+{#                    <li class="slide-item"><figure class="image-box"><a href="#"><img src="{% static 'images/clients/5.png' %}" alt=""></a></figure></li>#}
+{#                </ul>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
+    <!--End Clients Section-->
+
+     <!-- Process Section -->
+{#    <section class="process-section" style="background-image: url({% static 'images/background/8.jpg' %});">#}
+{#        <div class="auto-container">#}
+{#            <div class="sec-title light">#}
+{#                <span class="float-text">HOW WE WORK</span>#}
+{#                <h2>Proven Process</h2>#}
+{#            </div>#}
+{#            <div class="row">#}
+{#                {% for process in processes %}#}
+{#                <div class="process-block col-lg-3 col-md-6 col-sm-12">#}
+{#                    <div class="inner-box">#}
+{#                        <span class="count">{{ process.number }}</span>#}
+{#                        <h4><a href="service-detail.html">{{ process.title }}</a></h4>#}
+{#                        <div class="text">{{ process.long_desc }}</div>#}
+{#                        <div class="link-box"><a href="service-detail.html">Read More</a></div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                {% endfor %}#}
+{##}
+{#                <!-- Process Block -->#}
+{##}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
+    <!--End Process Section -->
+
+    <!-- Team Section -->
+
+
+    <!-- Video Section -->
+    <section class="video-section style-two">
+        <div class="outer-box">
+            <div class="auto-container">
+                <div class="row">
+                    <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <div class="sec-title">
+                                {% for video in videos %}
+                                <span class="float-text">See Video</span>
+                                <h2>{{ video.title }}</h2>
+                            </div>
+                            <span class="title">{{ video.suggestion }}</span>
+                            <div class="text">{{ video.about_video }}</div>
+                        </div>
+                    </div>
+
+                    <!-- Video Column -->
+                    <div class="video-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <div class="video-box">
+                                 <figure class="image"><img src="{% static 'images/resource/video-img.jpg' %}" alt="">
+                                    <a href="https://www.youtube.com/watch?v=Fvae8nxzVz4" class="link" data-fancybox="gallery" data-caption=""><span class="icon fa fa-play"></span></a>
+                                </figure>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+    <!--End Video Section -->

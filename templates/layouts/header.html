@@ -1,0 +1,90 @@
+{% load static %}
+<header class="main-header header-style-four">
+
+    <div class="header-lower">
+        <div class="auto-container">
+            <div class="main-box clearfix">
+                <div class="logo-box">
+                    <div class="logo"><a href="{% url 'home:home' %}"><img src="{% static 'images/logo-2.png' %}" alt=""
+                                                                           title=""></a></div>
+                </div>
+
+                <div class="nav-outer">
+                    <!-- Main Menu -->
+                    <nav class="main-menu navbar-expand-md ">
+                        <div class="navbar-header">
+                            <!-- Toggle Button -->
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="icon flaticon-menu-button"></span>
+                            </button>
+                        </div>
+
+                        <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
+                            <ul class="navigation clearfix">
+                                {% url 'home:home' as home %}
+                                <li class="{% if request.path == home %}active{% endif %}">
+                                    <a href="{{ home }}">Home</a>
+                                    <ul>
+
+                                    </ul>
+                                </li>
+                                <li class=""><a href="{% url 'about:about' %}">About</a>
+
+
+
+                                </li>
+                                <li class="dropdown"><a href="{% url 'project:project' %}">Projects</a>
+
+                                </li>
+                                <li {% if request.path == '/Blog/' %}class="active"{% endif %}><a
+                                        href="{% url 'blog:view' %}">Blog</a>
+
+                                </li>
+                                <li class="dropdown"><a href="{% url 'shop:list' %}">Shop</a>
+
+                                </li>
+                                <li class="active"><a href="{% url 'contact:contact' %}">Contact</a></li>
+                                <li class="dropdown">
+                                    <a href=""> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="29" fill="currentColor"
+                                         class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                </svg></a>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </nav><!-- Main Menu End-->
+
+                    <!-- Outer Box-->
+                    <div class="outer-box">
+                        <!--Search Box-->
+                        <div class="search-box-outer">
+                            <div class="dropdown">
+                                <button class="search-box-btn dropdown-toggle" type="button" id="dropdownMenu3"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span
+                                        class="fa fa-search"></span></button>
+                                <ul class="dropdown-menu pull-right search-panel" aria-labelledby="dropdownMenu3">
+                                    <li class="panel-outer">
+                                        <div class="form-container">
+                                            <form  action="{% url 'shop:list' %}">
+                                                <div class="form-group">
+                                                    <input type="text" name="q" value=""
+                                                           placeholder="Search Here">
+                                                    <button type="submit" class="search-btn"><span
+                                                            class="fa fa-search"></span></button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,44 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+     <section class="blog-section">
+        <div class="auto-container">
+            <div class="row">
+                {% for post in object_list %}
+                <div class="news-block-two col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner-box">
+                        <div class="image-box">
+                            <figure class="image"><img src="{{ post.image.url }}" alt=""></figure>
+                            <div class="overlay-box"><a href="{% url 'blog:detail' pk=post.pk %}"><i class="fa fa-link"></i></a></div>
+                        </div>
+                        <div class="caption-box">
+                            <div class="inner">
+                                <h3><a href="{% url 'blog:detail' pk=post.pk %}">{{ post.title }}</a></h3>
+                                <ul class="info">
+                                    <li>{{ post.created_at }}</li>
+                                    <li><a href="{% url 'blog:detail' pk=post.pk %}">{{ post.name }}</a></li>
+                                    <li><a href="{% url 'blog:detail' pk=post.pk %}">3 Commets</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+            </div>
+
+            <!--Post Share Options-->
+            <div class="styled-pagination">
+                <ul class="clearfix">
+                    <li class="prev-post"><a href="#"><span class="fa fa-long-arrow-left"></span> Prev</a></li>
+                    <li><a href="#">1</a></li>
+                    <li class="active"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li class="next-post"><a href="#"> Next <span class="fa fa-long-arrow-right"></span> </a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
